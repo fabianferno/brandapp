@@ -1,78 +1,46 @@
-# the-racoon-app
-![image](https://user-images.githubusercontent.com/57835412/148271293-d22f224c-722d-424c-b552-e800a2e91d36.png)
+# Getting Started with Create React App
 
-## Project setup
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Use `npm` to install the project dependencies:
+## Available Scripts
 
-```bash
-npm install
-```
+In the project directory, you can run:
 
-## Configuration
- 
-### Configure credentials
+### `yarn start`
 
-The project needs to be configured with your Auth0 Domain, Client ID and Client Secret for the authentication flow to work.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-To do this, first copy `.env.local.example` into a new file in the same folder called `.env.local`, and replace the values with your own Auth0 application credentials (see more info about [loading environmental variables in Next.js](https://nextjs.org/docs/basic-features/environment-variables)):
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-```sh
-# A long secret value used to encrypt the session cookie
-AUTH0_SECRET='LONG_RANDOM_VALUE'
-# The base url of your application
-AUTH0_BASE_URL='http://localhost:3000'
-# The url of your Auth0 tenant domain
-AUTH0_ISSUER_BASE_URL='https://YOUR_AUTH0_DOMAIN.auth0.com'
-# Your Auth0 application's Client ID
-AUTH0_CLIENT_ID='YOUR_AUTH0_CLIENT_ID'
-# Your Auth0 application's Client Secret
-AUTH0_CLIENT_SECRET='YOUR_AUTH0_CLIENT_SECRET'
-# Your Auth0 API's Identifier 
-# OMIT if you do not want to use the API part of the sample
-AUTH0_AUDIENCE='YOUR_AUTH0_API_IDENTIFIER'
-# The permissions your app is asking for
-# OMIT if you do not want to use the API part of the sample
-AUTH0_SCOPE='openid profile email read:shows'
-```
+### `yarn test`
 
-**Note**: Make sure you replace `AUTH0_SECRET` with your own secret (you can generate a suitable string using `openssl rand -hex 32` on the command line).
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## Run the sample
+### `yarn build`
 
-### Compile and hot-reload for development
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-This compiles and serves the Next.js app and starts the API server on port 3001.
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-```bash
-npm run dev
-```
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## Deployment
+### `yarn eject`
 
-### Compiles and minifies for production
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-```bash
-npm run build
-```
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-### Docker build
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-To build and run the Docker image, run `exec.sh`, or `exec.ps1` on Windows.
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-### Run the unit tests
+## Learn More
 
-```bash
-npm run test
-```
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-### Run the integration tests
-
-```bash
-npm run test:integration
-```
-
-
-## License
-
-This project is licensed under the MIT license. See the [LICENSE](./LICENSE) file for more info.
+To learn React, check out the [React documentation](https://reactjs.org/).
