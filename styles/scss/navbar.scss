@@ -1,0 +1,10 @@
+.nav-menu {
+  color: map.get($theme-colors, "primary");
+  padding: 0 20px 0 20px;
+  margin: 0 10px 0 10px;
+}
+
+.nav-menu:hover {
+  color: white;
+  transition: 0.2s ease;
+}

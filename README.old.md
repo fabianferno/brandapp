@@ -1,2 +1,0 @@
-# brandapp
-Faber Hackathon Submission
