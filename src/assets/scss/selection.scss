@@ -1,0 +1,10 @@
+/* Code for Selection Text */
+::-moz-selection {
+    background: map.get($theme-colors, "primary");
+    color: white;
+}
+
+::selection {
+    background: map.get($theme-colors, "primary");
+    color: white;
+}
