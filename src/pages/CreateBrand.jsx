@@ -117,7 +117,7 @@ export default function CreateBrand() {
   return (
     <Layout>
       <section className="pt-2">
-        <div className="text-dark container" style={{ paddingTop: "150px" }}>
+        <div className="text-dark container">
           <div className="mb-5 d-flex justify-content-between align-items-center">
             <h1 className="fw-bold">Create Brand</h1>
           </div>
