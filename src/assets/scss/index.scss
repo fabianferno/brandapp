@@ -1,7 +1,7 @@
 @use "sass:map";
 /* make the customizations */
 $theme-colors: ("info": #ffbc44,
-    "primary": #a1104d,
+    "primary": #6331b4,
     "dark": #2a2a2a,
     "secondary": #a7a7a7,
     "black": #0f0f0f,
@@ -28,6 +28,14 @@ a:hover {
     text-decoration: none;
 }
 
+.no-drag {
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
 
 .blur {
     filter: blur(5px);
@@ -54,21 +62,21 @@ img.dark-shadow {
 
 .hover-cursor:hover {
     cursor: pointer;
-  }
-  
-  .hover-cursor:hover p {
+}
+
+.hover-cursor:hover p {
     width: 100%;
     padding: 8px 15px;
     visibility: visible;
     opacity: 0.7;
-  }
-  
-  .hover-cursor {
+}
+
+.hover-cursor {
     position: relative;
     text-align: center;
-  }
-  
-  .hover-cursor p {
+}
+
+.hover-cursor p {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -79,4 +87,4 @@ img.dark-shadow {
     visibility: hidden;
     -webkit-transition: visibility 0s, opacity 0.3s linear;
     transition: visibility 0s, opacity 0.3s linear;
-  }
+}

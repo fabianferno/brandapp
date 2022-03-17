@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import motion from "framer-motion";
+import { motion } from "framer-motion";
 import { useMoralis } from "react-moralis";
 
 import Home from "./pages/Home";
@@ -46,9 +46,24 @@ function App() {
       <div>
         <section id="header" className="container">
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <div className="container-fluid">
+            <div className="container-fluid pt-3">
               <Link className="navbar-brand fw-bold text-primary " to="/">
-                @brandapp
+                <motion.div
+                  whileHover={{
+                    x: -10,
+
+                    transition: { duration: 0.6 },
+                  }}
+                  className="d-flex col-md-3 align-items-center justify-content-between "
+                >
+                  <img
+                    className="no-drag"
+                    src="images/chameleon.png"
+                    style={{ height: "50px" }}
+                    alt="branding"
+                  />{" "}
+                  <div className="ms-3">@brandapp</div>
+                </motion.div>{" "}
               </Link>
               <button
                 className="navbar-toggler"
@@ -78,7 +93,7 @@ function App() {
 
                   <li className="nav-item">
                     <Link className="nav-link" to="/all">
-                      All Brands
+                      All Minted Brands
                     </Link>
                   </li>
 
@@ -99,12 +114,18 @@ function App() {
                 </ul>
                 <div className="d-flex">
                   {isAuthenticated ? (
-                    <button className="btn btn-black" onClick={logOut}>
+                    <button
+                      className="btn me-2 btn-lg btn-outline-black"
+                      onClick={logOut}
+                    >
                       Logout
                     </button>
                   ) : (
-                    <button className="btn btn-primary me-2" onClick={login}>
-                      Moralis Metamask Login
+                    <button
+                      className="btn me-2 btn-lg btn-outline-primary"
+                      onClick={login}
+                    >
+                      Connect to Wallet
                     </button>
                   )}
                 </div>
