@@ -12,7 +12,7 @@ Team Members:
 * Jesinthan J
 
 ## Project Description
-An enterprise digital asset management which allows assets to be distributed in a centralized in a decentralized way so they can be used in the right way at the right time.
+A comprehensive built-in digital asset management which allows assets to be centralized in a decentralized way so they can be used in the right way at the right time.
 
 ## Inspiration
 From looking for lost logos to customize them following the brand guidelines, it is arduous to have and track them all under one roof. Although there are few DAM softwares, we wanted to provide a solution where each digital brand will be treated as an digital asset through NFT by centralizing them in a decentralized way.
