@@ -1,0 +1,42 @@
+{
+    "licet-pattarai": {
+        "organizationName": "Licet Pattarai",
+        "orgDescription": "Licet Pattarai is a non-profit organization that provides education and healthcare services to the people of the country. It is a non-governmental organization (NGO) and is registered under the Societies Registration Act, 1860.",
+        "brandOverview": "The WhatsApp brand is more than just a name. It's a set of values, attributes, and design principles that reflects the spirit of our company. Using it consistently will reinforce our passion and commitment to connect the world through real-time communication.",
+        "generalGuidelines": "Markdown Text",
+        "pronunciation": "li-cet patt-ar-ee",
+        "logo": {
+            "logos": [{
+                    "name": "Logo#1",
+                    "url": "https://ipfs.io/gateway/5as4d563a41sd4a5sd1a2d1sa321"
+                },
+                {
+                    "name": "Logo#2",
+                    "url": "https://ipfs.io/gateway/5as4d563a41sd4a5sd1a2d1sa321"
+                }
+            ],
+            "donts": [
+                "Don't use a logo that is too big or too small",
+                "Don't use a logo that is too big or too small"
+            ],
+            "dos": [
+                "The logo should be a square with a minimum height of 100px and a maximum height of 200px.",
+                "The logo should be a square with a minimum height of 100px and a maximum height of 200px."
+            ]
+        },
+        "colors": {
+            "primary": "#00B0FF",
+            "secondary": "#FF6D00",
+            "customColors": ["#00B0FF", "#FF6D00"]
+        },
+        "fonts": {
+            "primary": "Roboto",
+            "secondary": "Raleway"
+        },
+        "mockupImages": [
+            "https://ipfs.io/gateway/5as4d563a41sd4a5sd1a2d1sa321",
+            "https://ipfs.io/gateway/5as4d563a41sd4a5sd1a2d1sa321",
+            "https://ipfs.io/gateway/5as4d563a41sd4a5sd1a2d1sa321"
+        ]
+    }
+}

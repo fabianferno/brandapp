@@ -1,3 +1,4 @@
+import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import motion from "framer-motion";
 import { useMoralis } from "react-moralis";
@@ -46,7 +47,7 @@ function App() {
         <section id="header" className="container">
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
-              <Link className="navbar-brand fw-bold text-primary" to="/">
+              <Link className="navbar-brand fw-bold text-primary " to="/">
                 @brandapp
               </Link>
               <button
@@ -74,11 +75,6 @@ function App() {
                       Home
                     </Link>
                   </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/create">
-                      Create Brand
-                    </Link>
-                  </li>
 
                   <li className="nav-item">
                     <Link className="nav-link" to="/all">
@@ -86,11 +82,20 @@ function App() {
                     </Link>
                   </li>
 
-                  <li className="nav-item">
-                    <Link to="/my-brands" className="nav-link disabled">
-                      My Brands
-                    </Link>
-                  </li>
+                  {isAuthenticated && (
+                    <React.Fragment>
+                      <li className="nav-item">
+                        <Link className="nav-link" to="/create">
+                          Create Brand
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link to="/my-brands" className="nav-link disabled">
+                          My Brands (Coming Soon)
+                        </Link>
+                      </li>
+                    </React.Fragment>
+                  )}
                 </ul>
                 <div className="d-flex">
                   {isAuthenticated ? (

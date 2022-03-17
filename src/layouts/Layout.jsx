@@ -13,6 +13,10 @@ export default function Layout(props) {
         style={{ paddingTop: "200px" }}
       >
         {props.children}
+
+        <div className="text-center mt-5 py-5" id="footer">
+          Built for Faber Hackathon
+        </div>
       </motion.div>
     </AnimatePresence>
   );
