@@ -95,37 +95,82 @@ export default function BrandById() {
               <span className="mt-2 fs-5 fw-bold">Colors</span>
               <br />
               <span className="d-flex align-items-center mt-1 justify-content-between">
-                <div
-                  className="d-flex align-items-center justify-content-center  text-white p-2 bg-primary"
-                  style={{ borderRadius: "50%", width: "75px", height: "75px" }}
+                <span
+                  className="d-inline-block"
+                  tabindex="0"
+                  data-bs-toggle="tooltip"
+                  title="Primary"
                 >
-                  Primary
-                </div>
-                <div
-                  className="d-flex align-items-center justify-content-center  text-white p-2 bg-primary"
-                  style={{ borderRadius: "50%", width: "75px", height: "75px" }}
-                >
-                  Primary
-                </div>
-                <hr width="1" size="75" />
-                <div
-                  className="d-flex align-items-center justify-content-center  text-white p-2 bg-primary"
-                  style={{ borderRadius: "50%", width: "75px", height: "75px" }}
-                >
-                  <span
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="top"
-                    title="Tooltip on top"
+                  <button
+                    className="btn btn-primary p-0"
+                    onClick={() => navigator.clipboard.writeText("#a1104d")}
+                    type="button"
+                    style={{
+                      borderRadius: "50%",
+                      width: "75px",
+                      height: "75px",
+                    }}
                   >
-                    Primary
-                  </span>
-                </div>
-                <div
-                  className="d-flex align-items-center justify-content-center  text-white p-2 bg-primary"
-                  style={{ borderRadius: "50%", width: "75px", height: "75px" }}
+                    #a1104d
+                  </button>
+                </span>
+                <span
+                  className="d-inline-block"
+                  tabindex="0"
+                  data-bs-toggle="tooltip"
+                  title="Secondary"
                 >
-                  Primary
-                </div>
+                  <button
+                    className="btn btn-primary p-0"
+                    type="button"
+                    onClick={() => navigator.clipboard.writeText("#a1104d")}
+                    style={{
+                      borderRadius: "50%",
+                      width: "75px",
+                      height: "75px",
+                    }}
+                  >
+                    #a1104d
+                  </button>
+                </span>
+                <hr width="1" size="75" />
+                <span
+                  className="d-inline-block"
+                  tabindex="0"
+                  data-bs-toggle="tooltip"
+                  title="Primary"
+                >
+                  <button
+                    className="btn btn-primary p-0"
+                    type="button"
+                    style={{
+                      borderRadius: "50%",
+                      width: "75px",
+                      height: "75px",
+                    }}
+                  >
+                    #a1104d
+                  </button>
+                </span>
+                <span
+                  className="d-inline-block"
+                  tabindex="0"
+                  data-bs-toggle="tooltip"
+                  title="Secondary"
+                >
+                  <button
+                    className="btn btn-primary p-0"
+                    type="button"
+                    onClick={() => navigator.clipboard.writeText("#a1104d")}
+                    style={{
+                      borderRadius: "50%",
+                      width: "75px",
+                      height: "75px",
+                    }}
+                  >
+                    #a1104d
+                  </button>
+                </span>
               </span>
             </p>
             <p>
