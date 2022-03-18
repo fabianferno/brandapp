@@ -5,6 +5,12 @@ import { CgAdd } from "react-icons/cg";
 import { create } from "ipfs-http-client";
 import Layout from "../layouts/Layout";
 
+import { Web3Storage } from "web3.storage";
+
+function makeStorageClient() {
+  return new Web3Storage({ token: process.env.WEB3STORAGE_TOKEN });
+}
+
 const client = create("https://ipfs.infura.io:5001/api/v0");
 
 export default function CreateBrand() {
@@ -112,6 +118,17 @@ export default function CreateBrand() {
     console.log(schema);
 
     // Call API to create brand
+  }
+
+  function getFiles() {
+    const fileInput = document.querySelector('input[type="file"]');
+    return fileInput.files;
+  }
+  async function storeFiles(file) {
+    const client = makeStorageClient();
+    const cid = await client.put(file);
+    console.log("stored files with cid:", cid);
+    return cid;
   }
 
   return (
