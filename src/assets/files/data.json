@@ -1,0 +1,17 @@
+{
+  "slugName": "Netflix",
+  "brandName": "Netflix",
+  "brandDescription": "Netflix is a video streaming service",
+  "brandOverview": "Netflix is the broadcasting service",
+  "guidelinesValue": "Check the Brake",
+  "pronunciation": "net-fliks",
+  "logoName": "Netflix-logo",
+  "logoUrl": "https://bafybeifdkpwuory4ive6d4pjfkz7ufruce63az6vbttderhhgpj6wsxk4m.ipfs.dweb.link/7dc497e2-4975-11ec-a9ce-066b49664af6_cm_1440w.jpg",
+  "donts": "Do not rotate the logo",
+  "dos": "Do attribute the license",
+  "primaryColor": "#ff0000",
+  "secondaryColor": "#000000",
+  "primaryFont": "Roboto",
+  "secondaryFont": "Roboto",
+  "mockupUrl": "https://bafybeifsuqgfarkdfoje7bqaomu3yhzl7e3m6ywzftnnil3vq5wl7olkae.ipfs.dweb.link/beautiful_eyes.jpg"
+}
