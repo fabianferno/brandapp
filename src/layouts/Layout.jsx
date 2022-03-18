@@ -16,7 +16,7 @@ export default function Layout(props) {
 
         <div className="text-center mt-5 py-5" id="footer">
           Built with ❤️ by
-          <br /> <span className="fw-bold">We Simera</span>
+          <br /> <span className="fw-bold">We Sigma</span>
         </div>
       </motion.div>
     </AnimatePresence>
