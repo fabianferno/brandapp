@@ -5,13 +5,13 @@ import { motion } from "framer-motion";
 export default function Home() {
   return (
     <Layout>
-      <div className="row p-2" style={{ marginTop: "-100px" }}>
+      <div className="row p-2" >
         <div className="col-md-7 p-3">
           <h1 className="text-dark  fw-normal" color="light">
             Create your own <br />
             <span className="fw-bold text-primary">
               Brand Resource Center
-            </span>{" "}
+            </span>{" "}x``
             <br />
             on Web3.
           </h1>

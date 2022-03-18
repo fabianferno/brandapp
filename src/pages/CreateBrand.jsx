@@ -136,27 +136,27 @@ export default function CreateBrand() {
       <section className="pt-2">
         <div className="text-dark container">
           <div className="mb-5 d-flex justify-content-between align-items-center">
-            <h1 className="fw-bold">Create Brand</h1>
+            <h1 className="fw-bold" style={{fontSize:"5rem"}}>Mint your Brand</h1>
           </div>
           <section className="pb-5 mb-5">
             <form>
               <div className="form-group  my-4">
-                <label htmlFor="inputName" className="text-dark">
-                  Organisation Name
+                <label htmlFor="inputName" className="text-secondary pb-2">
+                  Brand Name
                 </label>
                 <input
                   ref={orgNameInputRef}
                   type="text"
                   style={{ width: "100%" }}
-                  className="p-3 d-flex bg-dark col-md-6 text-white  rounded focus-none"
+                  className="p-3 d-flex bg-dark col-md-6 text-white rounded focus-none"
                   id="inputName"
-                  placeholder="Organisation Name - Eg. Netflix"
+                  placeholder="Eg. Netflix"
                 />
               </div>
 
               <div className="form-group  my-4">
-                <label htmlFor="inputDescription" className="text-dark">
-                  Organisation description
+                <label htmlFor="inputDescription" className="text-secondary pb-2">
+                  Brand Description
                 </label>
                 <input
                   ref={orgDescriptionInputRef}
@@ -166,12 +166,12 @@ export default function CreateBrand() {
                   }
                   style={{ width: "100%" }}
                   id="inputDescription"
-                  placeholder="Netflix is a streaming service that offers a wide variety of content, including movies, TV shows, anime, documentaries, and more. It is owned by Netflix, Inc., a Delaware corporation."
+                  placeholder="Eg. Netflix is a streaming service that offers a wide variety of content, including movies, TV shows, anime, documentaries, and more. It is owned by Netflix, Inc., a Delaware corporation."
                 />
               </div>
 
               <div className="form-group  my-4">
-                <label htmlFor="inputOverview" className="text-dark">
+                <label htmlFor="inputOverview" className="text-secondary pb-2">
                   Brand Overview
                 </label>
                 <input
@@ -182,22 +182,23 @@ export default function CreateBrand() {
                   }
                   style={{ width: "100%" }}
                   id="inputOverview"
-                  placeholder="Netflix is a streaming service that offers a wide variety of content, including movies, TV shows, anime, documentaries, and more. It is owned by Netflix, Inc., a Delaware corporation."
+                  placeholder="Eg. Netflix is a streaming service that offers a wide variety of content, including movies, TV shows, anime, documentaries, and more. It is owned by Netflix, Inc., a Delaware corporation."
                 />
               </div>
               <div className="">
-                <label htmlFor="inputOverview" className="text-dark ">
-                  General Guidlines
+                <label htmlFor="inputOverview" className="text-secondary pb-2 ">
+                  General Guidelines
                 </label>
                 <MDEditor
+                  className=" rounded"
                   height={200}
                   value={guidlinesValue}
                   onChange={setGuidlinesValue}
                 />
               </div>
               <div className="form-group  my-4">
-                <label htmlFor="inputPronunciation" className="text-dark">
-                  pronunciation
+                <label htmlFor="inputPronunciation" className="text-secondary pb-2">
+                  Pronunciation
                 </label>
                 <input
                   ref={pronunciationInputRef}
@@ -213,7 +214,7 @@ export default function CreateBrand() {
               <div className="col-md-12">
                 <label
                   htmlFor="inputLogo"
-                  className="text-dark form-label my-4 "
+                  className="text-secondary pb-2 form-label"
                 >
                   Logo
                 </label>
@@ -308,7 +309,7 @@ export default function CreateBrand() {
                   ))}
               </div>
               <div className="form-group  my-4">
-                <label htmlFor="inputDos" className="text-dark">
+                <label htmlFor="inputDos" className="text-secondary pb-2">
                   Do's
                 </label>
                 <textarea
@@ -318,11 +319,11 @@ export default function CreateBrand() {
                   }
                   style={{ width: "100%" }}
                   id="inputDos"
-                  placeholder="Do's"
+                  placeholder="Eg. Do attribute the license"
                 />
               </div>
               <div className="form-group  my-4">
-                <label htmlFor="inputDonts" className="text-dark">
+                <label htmlFor="inputDonts" className="text-secondary pb-2">
                   Dont's
                 </label>
                 <textarea
@@ -332,19 +333,21 @@ export default function CreateBrand() {
                   }
                   style={{ width: "100%" }}
                   id="inputDonts"
-                  placeholder="Dont's"
+                  placeholder="Eg. Do not rotate the logo."
                 />
               </div>
-              <label htmlFor="inputColor" className="text-dark form-label ">
+              <label htmlFor="inputColor" className="text-secondary form-label pb-2">
                 Colors
               </label>
               <div className="d-flex">
                 <div className="mx-2">
                   <input
                     type="color"
-                    className="form-control form-control-color"
+                    className="form-control form-control-color rounded-circle"
+                    style={{ width: "40px", height: "40px" }}
                     id="exampleColorInput"
                     value={colors.primary}
+
                     title="Choose your color"
                     onChange={(e) => {
                       const values = { ...colors };
@@ -356,7 +359,8 @@ export default function CreateBrand() {
                 <div className="mx-2">
                   <input
                     type="color"
-                    className="form-control form-control-color"
+                    className="form-control form-control-color rounded-circle"
+                    style={{ width: "40px", height: "40px" }}
                     id="exampleColorInput"
                     value={colors.secondary}
                     title="Choose your color"
@@ -369,7 +373,7 @@ export default function CreateBrand() {
                 </div>
               </div>
               <div className="form-group  my-4">
-                <label htmlFor="inputFonts" className="text-dark">
+                <label htmlFor="inputFonts" className="text-secondary pb-2">
                   Fonts
                 </label>
                 <input
@@ -379,7 +383,7 @@ export default function CreateBrand() {
                   }
                   style={{ width: "100%" }}
                   id="inputFonts"
-                  placeholder="Roboto"
+                  placeholder="Primary Font"
                   onChange={(e) => {
                     const values = { ...fonts };
                     values.primary = e.target.value;
@@ -395,7 +399,7 @@ export default function CreateBrand() {
                   }
                   style={{ width: "100%" }}
                   id="inputFonts"
-                  placeholder="Sans-serif"
+                  placeholder="Secondary Font"
                   onChange={(e) => {
                     const values = { ...fonts };
                     values.secondary = e.target.value;
@@ -406,7 +410,7 @@ export default function CreateBrand() {
               <div className="me-md-4 my-4">
                 <label
                   htmlFor="inputMockups"
-                  className="text-dark form-label my-4 "
+                  className="text-secondary pb-2 form-label "
                 >
                   Mockups
                 </label>
@@ -442,7 +446,7 @@ export default function CreateBrand() {
                     )}
                     <input
                       type="file"
-                      className="form-control my-3 bg-dark text-white"
+                      className="form-control py-3"
                       name="Mockup_Images"
                       placeholder="Upload Mockup Images"
                       onChange={(e) => retrieveMockup(index, e)}
