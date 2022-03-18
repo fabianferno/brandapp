@@ -31,14 +31,4 @@ The platform is built using Reactjs, IPFS and Solidity. Organizations that need 
 Product demo on youtube:
 
 ## APP Url:
-Product demo on youtube:
-
-## What's next
-Product demo on youtube:
-
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Deployed Project link:
