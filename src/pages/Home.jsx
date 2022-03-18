@@ -109,7 +109,6 @@ export default function Home() {
             <div className="ms-4 h2  fw-bold">Polygon</div>
             <div className="ms-4 h2  fw-bold">IPFS</div>
             <div className="ms-4 h2  fw-bold">Filecoin</div>
-            <div className="ms-4 h2  fw-bold">Filecoin</div>
           </div>
         </div>
       </div>
