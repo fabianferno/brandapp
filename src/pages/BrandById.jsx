@@ -55,7 +55,7 @@ export default function BrandById() {
         </div>
         <div className="col-12 col-md-6 col-lg-5 p-2 p-md-3 p-lg-5 d-flex flex-column">
           <div className="d-flex justify-content-between my-2 my-md-0">
-            <h1 className="fw-bold">{data.slugName}</h1>
+            <h1 className="fw-bold">{data.brandName}</h1>
           </div>
           <p>
             <span className="mt-2 fs-5 fw-bold">Brand Description</span>

@@ -1,9 +1,9 @@
 {
   "slugName": "Netflix",
   "brandName": "Netflix",
-  "brandDescription": "Netflix is a video streaming service",
-  "brandOverview": "Netflix is the broadcasting service",
-  "guidelinesValue": "Check the Brake",
+  "brandDescription": "Netflix, Inc. operates as a streaming entertainment service company. The firm provides subscription service streaming movies and television episodes over the Internet and sending DVDs by mail. It operates through the following segments: Domestic Streaming, International Streaming and Domestic DVD.",
+  "brandOverview": "The Wordmark remains an essential identifier of our brand. While our goal is to lead with the N Symbol, we enlist the Wordmark to ensure brand recognition in low-awareness markets or when production limits the use of color.  ",
+  "guidelinesValue": "Logo Clear Space, Logo in Context",
   "pronunciation": "net-fliks",
   "logoName": "Netflix-logo",
   "logoUrl": "https://bafybeifdkpwuory4ive6d4pjfkz7ufruce63az6vbttderhhgpj6wsxk4m.ipfs.dweb.link/7dc497e2-4975-11ec-a9ce-066b49664af6_cm_1440w.jpg",
@@ -11,7 +11,7 @@
   "dos": "Do attribute the license",
   "primaryColor": "#ff0000",
   "secondaryColor": "#000000",
-  "primaryFont": "Roboto",
-  "secondaryFont": "Roboto",
+  "primaryFont": "Graphique",
+  "secondaryFont": "Netflix Sans",
   "mockupUrl": "https://bafybeifsuqgfarkdfoje7bqaomu3yhzl7e3m6ywzftnnil3vq5wl7olkae.ipfs.dweb.link/beautiful_eyes.jpg"
 }
