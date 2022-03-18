@@ -10,7 +10,7 @@ export default function Layout(props) {
         exit={{ opacity: 0, y: -10 }}
         transition={{ duration: 2.5 }}
         className="container overflow-hidden"
-        style={{ paddingTop: "200px" }}
+        style={{ paddingTop: "100px" }}
       >
         {props.children}
 
