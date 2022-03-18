@@ -2,6 +2,7 @@ import Layout from "../layouts/Layout";
 import { useParams } from "react-router-dom";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import data from "../assets/files/data.json";
+import { MdDownload } from 'react-icons/md';
 
 const mockupImages = [
   {
@@ -141,7 +142,11 @@ export default function BrandById() {
           </p>
         </div>
       </div>
-      {id && <p>{id}</p>}
+      <div className="text-center">
+        <div className="py-3 btn btn-success btn-lg h1 fw-bold text-white">
+          <p>Download Assets ⬇️</p>
+        </div>
+      </div>
     </Layout>
   );
 }
