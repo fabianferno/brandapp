@@ -1,6 +1,8 @@
 import Layout from "../layouts/Layout";
 import { useHistory, useParams } from "react-router-dom";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import data from "../assets/files/schema.json";
+// import { url } from "inspector";
 
 const mockupImages = [
   { img: "https://picsum.photos/500/500" },
@@ -11,7 +13,8 @@ const mockupImages = [
 
 export default function BrandById() {
   const { id } = useParams();
-
+  const brandName = Object.keys(data);
+  console.log(brandName[0]);
   return (
     <Layout>
       <div>
@@ -24,7 +27,8 @@ export default function BrandById() {
                 height: "500px",
                 maxWidth: "500px",
                 maxHeight: "500px",
-                backgroundImage: `url("https://picsum.photos/500/500")`,
+                // backgroundImage: `url(${logo.url})`,
+                background: "https://picsum.photos/500/500",
               }}
             ></div>
             <hr />
