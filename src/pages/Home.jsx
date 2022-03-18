@@ -11,7 +11,7 @@ export default function Home() {
             Create your own <br />
             <span className="fw-bold text-primary">
               Brand Resource Center
-            </span>{" "}x``
+            </span>{" "}
             <br />
             on Web3.
           </h1>

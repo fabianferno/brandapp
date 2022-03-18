@@ -1,142 +1,156 @@
-import React, { useState, useRef } from "react";
-import MDEditor from "@uiw/react-md-editor";
-import { MdOutlineCancel } from "react-icons/md";
-import { CgAdd } from "react-icons/cg";
+import React, { useState } from "react";
 import { create } from "ipfs-http-client";
+import { useMoralis, useMoralisWeb3Api, useMoralisWeb3ApiCall } from "react-moralis";
 import Layout from "../layouts/Layout";
+import { abi } from "../abi.js";
 
 import { Web3Storage } from "web3.storage";
 
 function makeStorageClient() {
-  return new Web3Storage({ token: process.env.WEB3STORAGE_TOKEN });
+
+  return new Web3Storage({ token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweENkMkU1OEFFMGQ0YTMzNTMwZGZlQ0U2ZGU4ZDMyYzMyOWU2ODI2RDciLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2NDc1NDE0Mjk2NzQsIm5hbWUiOiJicmFuZGFwcCJ9.RpDmipLiDzbymOOPfeE8OBifP32oxxuLhmkIftUGvb4" });
 }
 
 const client = create("https://ipfs.infura.io:5001/api/v0");
 
+
+
 export default function CreateBrand() {
-  const [inputLogo, setInputLogo] = useState({
-    name: "",
-    url: "",
-    otherVariation: [],
-  });
+  const [logoName, setLogoName] = useState("");
+  const [logoUrl, setLogoUrl] = useState("https://via.placeholder.com/500x500.png?text=Logo+Full");
+  const [brandName, setBrandName] = useState("");
+  const [brandDescription, setBrandDescription] = useState("");
+  const [brandOverview, setBrandOverview] = useState("");
+  const [guidelinesValue, setGuidelinesValue] = useState("");
+  const [pronunciation, setPronunciation] = useState("");
+  const [dos, setDos] = useState("");
+  const [donts, setDonts] = useState("");
+  const [primaryColor, setPrimaryColor] = useState("#ffffff");
+  const [secondaryColor, setSecondaryColor] = useState("#000000");
+  const [primaryFont, setPrimaryFont] = useState("");
+  const [secondaryFont, setSecondaryFont] = useState("");
+  const [mockupUrl, setMockupUrl] = useState("https://via.placeholder.com/500x500.png?text=Mockup+Image");
 
-  const [guidlinesValue, setGuidlinesValue] = useState("");
 
-  const [colors, setColors] = useState({
-    primary: "#ffffff",
-    secondary: "#000000",
-  });
-  const [fonts, setFonts] = useState({ primary: "", secondary: "" });
-  const [mockupUrl, setMockupUrl] = useState([""]);
+  const { native } = useMoralisWeb3Api();
+  const {
+    authenticate,
+    isAuthenticated,
+    isAuthenticating,
+    user,
+    account,
+    logout,
+  } = useMoralis();
 
-  // async function retrieveMockup(e) {
-  //   const file = e.target.files[0];
-  //   try {
-  //     const added = await client.add(file);
-  //     const url = `https://ipfs.infura.io/ipfs/${added.path}`;
-  //     setMockupUrl(url);
-  //   } catch (error) {
-  //     console.log("Error uploading file: ", error);
-  //   }
-  // }
+  const options = {
+    chain: "mumbai",
+    address: "0x63c954AebdE9E7a448835FE1A89e25A40D8695c5",
+    function_name: "mint",
+    abi: abi,
+  }
+  const { fetch, data, error, isLoading } = useMoralisWeb3ApiCall(
+    native.runContractFunction,
+    { ...options }
+  );
 
-  function retrieveMockup(i, event) {
-    const value = [...mockupUrl];
-    value[i] = event.target.files[0];
-    setMockupUrl(value);
-    console.log(event.target.files[0]);
+
+  async function retrieveLogo(e) {
+    const file = e.target.files[0];
+    try {
+      const client = makeStorageClient();
+      const cid = await client.put([file]);
+
+      var fullPath = e.target.value;
+
+      var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
+      var filename = fullPath.substring(startIndex);
+      if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
+        filename = filename.substring(1);
+      }
+      const url = `https://${cid}.ipfs.dweb.link/${filename}`;
+
+      setLogoUrl(url);
+    } catch (error) {
+      console.log("Error uploading file: ", error);
+    }
   }
 
-  function addMockupInput() {
-    const value = [...mockupUrl];
-    value.push("");
-    setMockupUrl(value);
+  async function retrieveMockup(e) {
+    const file = e.target.files[0];
+    try {
+      const client = makeStorageClient();
+      const cid = await client.put([file]);
+
+      var fullPath = e.target.value;
+
+      var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
+      var filename = fullPath.substring(startIndex);
+      if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
+        filename = filename.substring(1);
+      }
+      const url = `https://${cid}.ipfs.dweb.link/${filename}`;
+
+      setMockupUrl(url);
+    } catch (error) {
+      console.log("Error uploading file: ", error);
+    }
   }
 
-  function removeMockupInput(index) {
-    const value = [...mockupUrl];
-    value.splice(index, 1);
-    setMockupUrl(value);
+  function makeFileObjects(obj) {
+    const blob = new Blob([JSON.stringify(obj)], { type: 'application/json' })
+    const files = [
+      new File([blob], `${obj.slugName}.json}`)
+    ]
+    return files
   }
 
-  function addInput() {
-    const values = { ...inputLogo };
-    console.log(values);
-    values.otherVariation.push({ name: "", url: "" });
-    setInputLogo(values);
-    console.log(inputLogo);
-  }
-  function removeInput(i) {
-    const values = { ...inputLogo };
-    values.otherVariation.splice(i, 1);
-    setInputLogo(values);
-  }
-  function handleLogoChange(i, event) {
-    const values = { ...inputLogo };
-    values.otherVariation[i].name = event.target.value;
-    setInputLogo(values);
-  }
-  function handleFileChange(i, event) {
-    const values = { ...inputLogo };
-    values.otherVariation[i].url = event.target.files[0];
-    setInputLogo(values);
-  }
-
-  const orgNameInputRef = useRef();
-  const brandOverviewInputRef = useRef();
-  const pronunciationInputRef = useRef();
-  const orgDescriptionInputRef = useRef();
-  const dosInputRef = useRef();
-  const dontsInputRef = useRef();
 
   async function createBrand() {
-    const organisationName = orgNameInputRef.current.value;
-    const brandOverview = brandOverviewInputRef.current.value;
-    const pronunciation = pronunciationInputRef.current.value;
-    const organisationDescription = orgDescriptionInputRef.current.value;
-    const dos = dosInputRef.current.value;
-    const donts = dontsInputRef.current.value;
-    const slugName = organisationName.split(" ").join("-");
-
     let schema = {
-      [slugName]: {
-        organizationName: organisationName,
-        orgDescription: organisationDescription,
-        brandOverview: brandOverview,
-        generalGuidelines: guidlinesValue,
-        pronunciation: pronunciation,
-        logo: {
-          logos: [{ ...inputLogo }],
-          donts: donts,
-          dos: dos,
-        },
-        colors: colors,
-        fonts: fonts,
-        mockupImages: mockupUrl,
-      },
+      slugName: brandName.split(" ").join("-"),
+      brandName,
+      brandDescription,
+      brandOverview,
+      guidelinesValue,
+      pronunciation,
+      logoName,
+      logoUrl,
+      donts,
+      dos,
+      primaryColor,
+      secondaryColor,
+      primaryFont,
+      secondaryFont,
+      mockupUrl,
     };
-    console.log(schema);
-
     // Call API to create brand
+    const client = makeStorageClient();
+    const cid = await client.put(makeFileObjects(schema));
+
+    const metadata = `https://${cid}.ipfs.dweb.link/${schema.slugName}.json`;
+
+    console.log(metadata);
+
+    // fetch({
+    //   params: { _to: user.get("ethAddress"), _uri: url }
+    // });
+    await authenticate({ signingMessage: "Mint your NFT" })
+      .then(function (user) {
+        console.log("logged in user:", user);
+        console.log(user.get("ethAddress"));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
-  function getFiles() {
-    const fileInput = document.querySelector('input[type="file"]');
-    return fileInput.files;
-  }
-  async function storeFiles(file) {
-    const client = makeStorageClient();
-    const cid = await client.put(file);
-    console.log("stored files with cid:", cid);
-    return cid;
-  }
 
   return (
     <Layout>
       <section className="pt-2">
         <div className="text-dark container">
           <div className="mb-5 d-flex justify-content-between align-items-center">
-            <h1 className="fw-bold" style={{fontSize:"5rem"}}>Mint your Brand</h1>
+            <h1 className="fw-bold" style={{ fontSize: "5rem" }}>Mint your Brand</h1>
           </div>
           <section className="pb-5 mb-5">
             <form>
@@ -145,12 +159,13 @@ export default function CreateBrand() {
                   Brand Name
                 </label>
                 <input
-                  ref={orgNameInputRef}
+                  value={brandName}
                   type="text"
                   style={{ width: "100%" }}
                   className="p-3 d-flex bg-dark col-md-6 text-white rounded focus-none"
                   id="inputName"
                   placeholder="Eg. Netflix"
+                  onChange={(e) => setBrandName(e.target.value)}
                 />
               </div>
 
@@ -159,58 +174,72 @@ export default function CreateBrand() {
                   Brand Description
                 </label>
                 <input
-                  ref={orgDescriptionInputRef}
                   type="text"
                   className={
                     "p-3 d-flex bg-dark  text-white  rounded focus-none"
                   }
+                  value={brandDescription}
+                  onChange={(e) => setBrandDescription(e.target.value)}
                   style={{ width: "100%" }}
                   id="inputDescription"
                   placeholder="Eg. Netflix is a streaming service that offers a wide variety of content, including movies, TV shows, anime, documentaries, and more. It is owned by Netflix, Inc., a Delaware corporation."
                 />
               </div>
 
+
               <div className="form-group  my-4">
                 <label htmlFor="inputOverview" className="text-secondary pb-2">
                   Brand Overview
                 </label>
                 <input
-                  ref={brandOverviewInputRef}
                   type="text"
                   className={
                     "p-3 d-flex bg-dark  text-white rounded focus-none"
                   }
+                  value={brandOverview}
+                  onChange={(e) => setBrandOverview(e.target.value)}
                   style={{ width: "100%" }}
                   id="inputOverview"
                   placeholder="Eg. Netflix is a streaming service that offers a wide variety of content, including movies, TV shows, anime, documentaries, and more. It is owned by Netflix, Inc., a Delaware corporation."
                 />
               </div>
+
+
               <div className="">
                 <label htmlFor="inputOverview" className="text-secondary pb-2 ">
                   General Guidelines
                 </label>
-                <MDEditor
-                  className=" rounded"
-                  height={200}
-                  value={guidlinesValue}
-                  onChange={setGuidlinesValue}
+                <textarea
+                  value={guidelinesValue}
+                  onChange={(e) => setGuidelinesValue(e.target.value)}
+                  className={
+                    "p-3 d-flex bg-dark  text-white  rounded focus-none"
+                  }
+                  style={{ width: "100%" }}
+                  id="inputDos"
+                  placeholder="Eg. Check the right sizes"
                 />
               </div>
+
+
               <div className="form-group  my-4">
                 <label htmlFor="inputPronunciation" className="text-secondary pb-2">
                   Pronunciation
                 </label>
                 <input
-                  ref={pronunciationInputRef}
                   type="text"
                   className={
                     "p-3 d-flex bg-dark  text-white  rounded focus-none"
                   }
+                  value={pronunciation}
+                  onChange={(e) => setPronunciation(e.target.value)}
                   style={{ width: "100%" }}
                   id="inputPronunciation"
                   placeholder="li-cet patt-ar-ee"
                 />
               </div>
+
+
               <div className="col-md-12">
                 <label
                   htmlFor="inputLogo"
@@ -218,102 +247,44 @@ export default function CreateBrand() {
                 >
                   Logo
                 </label>
-                <div className="d-inline-block">
-                  <button
-                    className="btn"
-                    type="button"
-                    sx={{ color: "#182340" }}
-                    aria-label="add"
-                    component="span"
-                    onClick={addInput}
-                  >
-                    <CgAdd sx={{ width: "40px", height: "40px" }} />
-                  </button>
-                </div>
-
                 <div className="w-100">
                   <div className="input-group mb-3">
                     <input
                       type="text"
                       className="form-control"
                       placeholder="Logo Name"
-                      aria-label="Logo Name"
-                      aria-describedby="button-addon2"
-                      value={inputLogo.name}
-                      onChange={(e) => {
-                        const values = { ...inputLogo };
-                        values.name = e.target.value;
-                        setInputLogo(values);
-                      }}
+                      value={logoName}
+                      onChange={(e) =>
+                        setLogoName(e.target.value)
+                      }
                     />
                     <input
                       className="form-control"
                       type="file"
                       id="formFile"
-                      onChange={(e) => {
-                        const values = { ...inputLogo };
-                        values.url = e.target.files[0];
-                        setInputLogo(values);
-                      }}
+                      onChange={(e) =>
+                        retrieveLogo(e)
+                      }
                     />
                   </div>
                 </div>
-
-                {inputLogo.otherVariation.length > 0 &&
-                  inputLogo.otherVariation.map((input, index) => (
-                    <div
-                      key={`${input}-${index}`}
-                      className={`${index > 0 && "mt-2"}`}
-                    >
-                      <div className="d-flex">
-                        <div className="">
-                          <button
-                            onClick={() => removeInput(index)}
-                            className="btn"
-                            type="button"
-                            sx={{ color: "#ec523e" }}
-                            aria-label="cancel"
-                            component="span"
-                          >
-                            <MdOutlineCancel
-                              sx={{ width: "40px", height: "40px" }}
-                            />
-                          </button>
-                        </div>
-
-                        <div className="w-100">
-                          <div className="input-group mb-3">
-                            <input
-                              type="text"
-                              className="form-control"
-                              placeholder="Logo Name"
-                              aria-label="Logo Name"
-                              aria-describedby="button-addon2"
-                              value={input.name}
-                              onChange={(e) => {
-                                handleLogoChange(index, e);
-                              }}
-                            />
-                            <input
-                              className="form-control"
-                              type="file"
-                              id="formFile"
-                              onChange={(e) => {
-                                handleFileChange(index, e);
-                              }}
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+                <img
+                  className="card card-body"
+                  style={{ height: "400px" }}
+                  src={logoUrl}
+                  alt=""
+                />
               </div>
-              <div className="form-group  my-4">
+
+
+
+              <div className="form-group my-4">
                 <label htmlFor="inputDos" className="text-secondary pb-2">
                   Do's
                 </label>
                 <textarea
-                  ref={dosInputRef}
+                  value={dos}
+                  onChange={(e) => setDos(e.target.value)}
                   className={
                     "p-3 d-flex bg-dark  text-white  rounded focus-none"
                   }
@@ -322,12 +293,17 @@ export default function CreateBrand() {
                   placeholder="Eg. Do attribute the license"
                 />
               </div>
+
+
+
+
               <div className="form-group  my-4">
                 <label htmlFor="inputDonts" className="text-secondary pb-2">
                   Dont's
                 </label>
                 <textarea
-                  ref={dontsInputRef}
+                  value={donts}
+                  onChange={(e) => setDonts(e.target.value)}
                   className={
                     "p-3 d-flex bg-dark  text-white  rounded focus-none"
                   }
@@ -336,6 +312,10 @@ export default function CreateBrand() {
                   placeholder="Eg. Do not rotate the logo."
                 />
               </div>
+
+
+
+
               <label htmlFor="inputColor" className="text-secondary form-label pb-2">
                 Colors
               </label>
@@ -346,14 +326,10 @@ export default function CreateBrand() {
                     className="form-control form-control-color rounded-circle"
                     style={{ width: "40px", height: "40px" }}
                     id="exampleColorInput"
-                    value={colors.primary}
+                    value={primaryColor}
 
                     title="Choose your color"
-                    onChange={(e) => {
-                      const values = { ...colors };
-                      values.primary = e.target.value;
-                      setColors(values);
-                    }}
+                    onChange={(e) => setPrimaryColor(e.target.value)}
                   ></input>
                 </div>
                 <div className="mx-2">
@@ -362,16 +338,14 @@ export default function CreateBrand() {
                     className="form-control form-control-color rounded-circle"
                     style={{ width: "40px", height: "40px" }}
                     id="exampleColorInput"
-                    value={colors.secondary}
+                    value={secondaryColor}
                     title="Choose your color"
-                    onChange={(e) => {
-                      const values = { ...colors };
-                      values.secondary = e.target.value;
-                      setColors(values);
-                    }}
+                    onChange={(e) => setSecondaryColor(e.target.value)}
                   ></input>
                 </div>
               </div>
+
+
               <div className="form-group  my-4">
                 <label htmlFor="inputFonts" className="text-secondary pb-2">
                   Fonts
@@ -384,11 +358,8 @@ export default function CreateBrand() {
                   style={{ width: "100%" }}
                   id="inputFonts"
                   placeholder="Primary Font"
-                  onChange={(e) => {
-                    const values = { ...fonts };
-                    values.primary = e.target.value;
-                    setFonts(values);
-                  }}
+                  value={primaryFont}
+                  onChange={(e) => setPrimaryFont(e.target.value)}
                 />
               </div>
               <div className="form-group  my-4">
@@ -400,13 +371,12 @@ export default function CreateBrand() {
                   style={{ width: "100%" }}
                   id="inputFonts"
                   placeholder="Secondary Font"
-                  onChange={(e) => {
-                    const values = { ...fonts };
-                    values.secondary = e.target.value;
-                    setFonts(values);
-                  }}
+                  value={secondaryFont}
+                  onChange={(e) => setSecondaryFont(e.target.value)}
                 />
               </div>
+
+
               <div className="me-md-4 my-4">
                 <label
                   htmlFor="inputMockups"
@@ -414,46 +384,20 @@ export default function CreateBrand() {
                 >
                   Mockups
                 </label>
-                <div className="d-inline-block">
-                  <button
-                    className="btn"
-                    type="button"
-                    sx={{ color: "#182340" }}
-                    aria-label="add"
-                    component="span"
-                    onClick={addMockupInput}
-                  >
-                    <CgAdd sx={{ width: "40px", height: "40px" }} />
-                  </button>
-                </div>
-                {mockupUrl.map((input, index) => (
-                  <div className="d-flex align-items-center" key={index}>
-                    {index > 0 && (
-                      <div className="">
-                        <button
-                          onClick={() => removeMockupInput(index)}
-                          className="btn"
-                          type="button"
-                          sx={{ color: "#ec523e" }}
-                          aria-label="cancel"
-                          component="span"
-                        >
-                          <MdOutlineCancel
-                            sx={{ width: "40px", height: "40px" }}
-                          />
-                        </button>
-                      </div>
-                    )}
-                    <input
-                      type="file"
-                      className="form-control py-3"
-                      name="Mockup_Images"
-                      placeholder="Upload Mockup Images"
-                      onChange={(e) => retrieveMockup(index, e)}
-                    />
-                  </div>
-                ))}
+                <input
+                  type="file"
+                  className="form-control py-3"
+                  placeholder="Upload Mockup Images"
+                  onChange={(e) => retrieveMockup(e)}
+                />
               </div>
+
+              <img
+                className="card card-body"
+                style={{ height: "400px" }}
+                src={mockupUrl}
+                alt=""
+              />
             </form>
 
             <hr />
@@ -462,7 +406,7 @@ export default function CreateBrand() {
               onClick={createBrand}
               className="mt-5 btn d-block btn-lg fw-bold btn-primary p-3"
             >
-              Create Brand ✅
+              Mint your Brand 💫
             </div>
           </section>
         </div>
