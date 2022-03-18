@@ -24,7 +24,7 @@ It's unrivaled benefit is that each brand will be minted as NFTs.
 
 
 ## How we built in
-It has a "React" front end that efficiently makes use of a Bootstrap Design System. Our file uploads go directly into the IPFS providing a decentralized storage solution persisted via Filecoin. The smart contracts were written in assembly-script, along with Polygon which does the minting process in the network.
+The platform is built using Reactjs, IPFS and Solidity. Organizations that need a platform for brand guidelines can add their guidelines in this platform by connecting their metamask wallets. Once logged in, they can create and view brand guidelines. On creating brand guidelines all the  metadata is stored in IPFS via Filecoin using WebStorage. The NFT smart contract takes care of data upload and is unique as each data is non-fungable. It is decentalized as it uses IPFS. 
 
 
 ## Presentation
