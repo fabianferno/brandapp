@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export default function Home() {
   return (
     <Layout>
-      <div className="row p-2" >
+      <div className="row p-2">
         <div className="col-md-7 p-3">
           <h1 className="text-dark  fw-normal" color="light">
             Create your own <br />
