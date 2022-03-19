@@ -2,19 +2,10 @@
 
 ![image](https://user-images.githubusercontent.com/67854393/158986074-c049ae8e-dde3-4e1f-a846-1672a28db635.png)
 ![image](https://user-images.githubusercontent.com/67854393/158986151-4945e58d-77d0-4a3d-8625-587dfe89ad84.png)
-![image](https://user-images.githubusercontent.com/67854393/158986356-2ae99e2c-cb4a-4de7-8b9f-f114ef1a2427.png)
+![image](https://user-images.githubusercontent.com/57835412/159112887-566a5c7a-8f33-4333-a651-a8105134bdbf.png)
+![image](https://user-images.githubusercontent.com/57835412/159112904-17398d83-663b-4453-8bf1-69c146c6dd0e.png)
+![image](https://user-images.githubusercontent.com/57835412/159112941-9fcef3b5-1571-4205-ab9a-cb03ab1f836b.png)
 
-
-Region:
-* India
-
-Team Members:
-* Fabian Ferno
-* Gabriel Antony Xaviour
-* Veroni Shwetha D
-* Raksha VG
-* Elizabeth Subhiksha Victoria
-* Jesinthan J
 
 ## Description
 @brandapp is a comprehensive built-in brand assets management dapp which helps managing brand assets while acting as a white-label brand guidelines page minted for your brand. Using ERC721 each brand minted on the brandapp has its metadata and assets hosted on the IPFS via Filecoin through the web3.storage platform. This enables us to implement a Proof of Brand consensus and mint brands on the blockchain while retaining assets and metadatas on the IPFS through FileCoin.
@@ -41,9 +32,17 @@ We learnt to use Solidity, IPFS clients and Moralis SDK. Ofcourse we enjoyed tea
 ## What's next for Brandapp
 @brandapp's future as a Proof of Brand and a decentralized Digital Asset Management tool has a huge scope in the martech industry.
 
-
 ## Presentation
 Product demo on youtube:
 
 ## Links:
 - https://brandapp-nfts.netlify.app/
+
+
+Team Members:
+* Fabian Ferno
+* Gabriel Antony Xaviour
+* Veroni Shwetha D
+* Raksha VG
+* Elizabeth Subhiksha Victoria
+* Jesinthan J
