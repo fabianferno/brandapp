@@ -33,8 +33,7 @@ We learnt to use Solidity, IPFS clients and Moralis SDK. Ofcourse we enjoyed tea
 @brandapp's future as a Proof of Brand and a decentralized Digital Asset Management tool has a huge scope in the martech industry.
 
 ## Presentation
-Product demo on youtube:
-- https://youtu.be/d27TPliT4XU
+Product demo on youtube: https://youtu.be/d27TPliT4XU
 
 
 ## Links:
