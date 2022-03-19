@@ -4,12 +4,15 @@
 
 ![image](https://user-images.githubusercontent.com/67854393/158986074-c049ae8e-dde3-4e1f-a846-1672a28db635.png)
 ![image](https://user-images.githubusercontent.com/67854393/158986151-4945e58d-77d0-4a3d-8625-587dfe89ad84.png)
+![landing3](https://user-images.githubusercontent.com/67854393/159113715-7b0e25a0-efeb-43c9-821e-cadd5b37c43a.png)
 ![image](https://user-images.githubusercontent.com/57835412/159112887-566a5c7a-8f33-4333-a651-a8105134bdbf.png)
 ![image](https://user-images.githubusercontent.com/57835412/159112904-17398d83-663b-4453-8bf1-69c146c6dd0e.png)
 ![image](https://user-images.githubusercontent.com/57835412/159112941-9fcef3b5-1571-4205-ab9a-cb03ab1f836b.png)
 ![image](https://user-images.githubusercontent.com/57835412/159112992-2589b128-dc17-48d4-9c89-8a004f60b8b6.png)
+![mokup](https://user-images.githubusercontent.com/67854393/159114043-ee353769-424e-4bc2-ae71-f08b30406110.jpg)
+![createBrand](https://user-images.githubusercontent.com/67854393/159113834-7695bde7-6781-4069-b7b8-667490a0d8d5.png)
 
- 
+
 ## Inspiration
 Most Brands have their own whitelabel branding page with brand guidelines and assets for download. From looking for lost logos to customize them following the brand guidelines, it is arduous to have and track them all under one roof. Although there are few DAM softwares, we wanted to provide a solution where each digital brand will be treated as an digital asset through NFT by centralizing them in a decentralized way. We felt the need to have a Proof of Brand concept.
 
