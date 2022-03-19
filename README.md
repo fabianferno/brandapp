@@ -7,6 +7,8 @@
 ![image](https://user-images.githubusercontent.com/57835412/159112887-566a5c7a-8f33-4333-a651-a8105134bdbf.png)
 ![image](https://user-images.githubusercontent.com/57835412/159112904-17398d83-663b-4453-8bf1-69c146c6dd0e.png)
 ![image](https://user-images.githubusercontent.com/57835412/159112941-9fcef3b5-1571-4205-ab9a-cb03ab1f836b.png)
+![image](https://user-images.githubusercontent.com/57835412/159112992-2589b128-dc17-48d4-9c89-8a004f60b8b6.png)
+
  
 ## Inspiration
 Most Brands have their own whitelabel branding page with brand guidelines and assets for download. From looking for lost logos to customize them following the brand guidelines, it is arduous to have and track them all under one roof. Although there are few DAM softwares, we wanted to provide a solution where each digital brand will be treated as an digital asset through NFT by centralizing them in a decentralized way. We felt the need to have a Proof of Brand concept.
