@@ -34,6 +34,8 @@ We learnt to use Solidity, IPFS clients and Moralis SDK. Ofcourse we enjoyed tea
 
 ## Presentation
 Product demo on youtube:
+- https://youtu.be/d27TPliT4XU
+
 
 ## Links:
 - https://brandapp-nfts.netlify.app/
